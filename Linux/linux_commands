@@ -1,0 +1,72 @@
+man [command]  (per veure la info del comando) ó command --help
+
+
+pwd
+
+mkdir
+rmdir   (borrar carpeta buida)
+rm -r [carpeta] (rm recursiu(-r) per borrar carpetes plenes) ó rm --recursive [...]
+rm -r -i [...]  (-i = --interactive, demanarà en cada cosa si la vols borrar o no) ó rm -ri [...]
+
+nom d'arxiu amb espais --> "..."
+fitxers ocults --> .nomFitxer
+touch [arxiu1] [arxiu2] ...(crear arxius)
+rm [arxiu1] [arxiu2] ... (borrar arxius)
+mv [fitxer] [destinació] (moure fitxer)
+mv [nomAntic] [nomNou]
+cp [fitxer] [destinació] (copiar fitxer)
+cp [nomAntic] [destinació/nomNou]
+cat [arxiu1] [arxiu2] ...
+grep [nomBusqueda] [nomFitxer] (per buscar en quines linies surt el nomBusqueda al fitxer)
+grep -n ... (diu la línea també)
+
+*escriure a fitxers*
+nano [nomFitxer]
+
+echo (printar text)
+echo "..."
+
+'\ ' = ' '
+^ = ctrl
+!! = comanda anterior
+
+sudo su (per passar a ser admin)
+
+primer permisos usuari despres grup i despres altres usuaris (cada 3 lletres) r:read W:write x:execute
+
+chmod u+x,g+x prueba.txt (al user i group els deixem executar prueba.txt, cambiar permisos)(pot ser u, g, o)
+chmod 664 prueba.txt (rw- = 110 = 6 i aixi amb els 3 users)
+
+ln -s [direccioFitxer a apuntar] [fitxerNou que sera el link] (-s es soft link, sino hi ha res es hard.link)
+
+*.txt (tots els arxius txt)
+a*.txt (tots els arxius que comencen per a i son txt)
+a?.txt (arxius q tenen *un* caracter despres de la a i son txt)
+fichero[AB].txt (arxius que es diuen fichero i acaben en A o B i son txt)
+fichero[^AB].txt (arxius que es diuen fichero i no acaben en A o B i son txt)
+fichero{AB,AE}.txt (arxius que es diuen fichero i acaben en AB o AE i son txt)
+fichero[a-d].txt (arxius que es diuen fichero i acaben en a,b,c o d i son txt)
+fichero[a-dA-D].txt (arxius que es diuen fichero i acaben en a,b,c,d o A,B,C,D i son txt)
+
+find Test/ -name "*.txt"(per buscar fitxers dins de Test que siguin txt ó per saber directori on estan els fitxers)
+
+grep t fichero.txt (busque paraules amb t a ficheros.txt)
+
+stdin 0
+stdout 1 
+stderr 2
+
+echo "Hola Mundo" > fichero.txt (escrivim hola mundo a fichero.txt redirigin el stdout)
+ls -l > fichero.txt
+
+apt list | grep alacritty (redirigeix la sortida de apt com entrada del grep (tuberia))
+
+cut -d " " -f 3 productos.txt (agafer la columna 3, les columnes es separen per un espai)
+
+sed "s/  */ /g" fichero.txt (cambie mes de dos espais per un de sol)
+
+ls -l | tail -n +2  (agafarem el ls -l sense la primera línea)
+
+python3 error.py 2 > e.txt (redirigim el error del arxiu python a e.txt)
+
+echo "hola" >> prova.txt (per afegir a un fitxer i no sobreescriure)
